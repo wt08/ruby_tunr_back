@@ -15,10 +15,10 @@ class SongsController < ApplicationController
 
   # POST /songs
   def create
-    song = Playlist.find(params[:playlist_id]).songs.new(song_params)
+    song = Playlist.find(params[:playlist_id]).songs.create(song_params)
 
     if song.save
-      render json: song, status: :created, location: song
+      render json: song, status: :created
     else
       render json: song.errors, status: :unprocessable_entity
     end
