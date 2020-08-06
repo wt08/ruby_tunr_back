@@ -1169,3 +1169,122 @@ Processing by SongsController#show as HTML
 Completed 200 OK in 36ms (Views: 0.4ms | ActiveRecord: 29.5ms | Allocations: 1963)
 
 
+  [1m[36mPlaylist Load (0.6ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (11.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (1.2ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Chop Suey!"], ["artist", "System Of A Down"], ["time", 210], ["created_at", "2020-08-06 17:18:54.552010"], ["updated_at", "2020-08-06 17:18:54.552010"]]
+  [1m[36mRelate Create (0.8ms)[0m  [1m[32mINSERT INTO "relates" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 18], ["created_at", "2020-08-06 17:18:54.567998"], ["updated_at", "2020-08-06 17:18:54.567998"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/playlists" for ::1 at 2020-08-06 13:19:05 -0400
+Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (3.8ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/controllers/playlists_controller.rb:8:in `index'
+  [1m[36mSong Load (1.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 2]]
+  ↳ app/controllers/playlists_controller.rb:8:in `index'
+  [1m[36mSong Load (2.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 3]]
+  ↳ app/controllers/playlists_controller.rb:8:in `index'
+Completed 200 OK in 45ms (Views: 0.1ms | ActiveRecord: 10.3ms | Allocations: 4071)
+
+
+Started GET "/songs" for ::1 at 2020-08-06 13:19:13 -0400
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+  [1m[36mPlaylist Load (0.6ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" INNER JOIN "relates" ON "playlists"."id" = "relates"."playlist_id" WHERE "relates"."song_id" = $1[0m  [["song_id", 6]]
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+  [1m[36mPlaylist Load (0.8ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" INNER JOIN "relates" ON "playlists"."id" = "relates"."playlist_id" WHERE "relates"."song_id" = $1[0m  [["song_id", 7]]
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+  [1m[36mPlaylist Load (0.7ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" INNER JOIN "relates" ON "playlists"."id" = "relates"."playlist_id" WHERE "relates"."song_id" = $1[0m  [["song_id", 8]]
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+  [1m[36mPlaylist Load (0.7ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" INNER JOIN "relates" ON "playlists"."id" = "relates"."playlist_id" WHERE "relates"."song_id" = $1[0m  [["song_id", 9]]
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+  [1m[36mPlaylist Load (3.8ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" INNER JOIN "relates" ON "playlists"."id" = "relates"."playlist_id" WHERE "relates"."song_id" = $1[0m  [["song_id", 10]]
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+  [1m[36mPlaylist Load (31.6ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" INNER JOIN "relates" ON "playlists"."id" = "relates"."playlist_id" WHERE "relates"."song_id" = $1[0m  [["song_id", 11]]
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" INNER JOIN "relates" ON "playlists"."id" = "relates"."playlist_id" WHERE "relates"."song_id" = $1[0m  [["song_id", 18]]
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 82ms (Views: 0.1ms | ActiveRecord: 39.4ms | Allocations: 9664)
+
+
+Started GET "/relates" for ::1 at 2020-08-06 13:19:22 -0400
+Processing by RelatesController#index as HTML
+  [1m[36mRelate Load (26.1ms)[0m  [1m[34mSELECT "relates".* FROM "relates"[0m
+  ↳ app/controllers/relates_controller.rb:8:in `index'
+Completed 200 OK in 29ms (Views: 2.7ms | ActiveRecord: 26.1ms | Allocations: 1642)
+
+
+Started GET "/playlists" for ::1 at 2020-08-06 13:37:28 -0400
+Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (17.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/controllers/playlists_controller.rb:8:in `index'
+  [1m[36mSong Load (1.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 2]]
+  ↳ app/controllers/playlists_controller.rb:8:in `index'
+  [1m[36mSong Load (29.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 3]]
+  ↳ app/controllers/playlists_controller.rb:8:in `index'
+Completed 200 OK in 85ms (Views: 0.3ms | ActiveRecord: 48.5ms | Allocations: 13868)
+
+
+Started POST "/playlists/3/songs" for ::1 at 2020-08-06 13:38:49 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"title"=>"Catching Fireflies", "artist"=>"The Revivalists", "time"=>"313"}, "playlist_id"=>"3"}
+  [1m[36mPlaylist Load (0.5ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:18:in `create'
+  [1m[35m (2.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (3.3ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Catching Fireflies"], ["artist", "The Revivalists"], ["time", 313], ["created_at", "2020-08-06 17:38:49.703554"], ["updated_at", "2020-08-06 17:38:49.703554"]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 11.7ms | Allocations: 26370)
+
+
+  
+NoMethodError (undefined method `song_url' for #<SongsController:0x00007fce8c147e38>
+Did you mean?  song_params):
+  
+app/controllers/songs_controller.rb:21:in `create'
+Started POST "/playlists/3/songs" for ::1 at 2020-08-06 13:40:31 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"title"=>"Catching Fireflies", "artist"=>"The Revivalists", "time"=>"313"}, "playlist_id"=>"3"}
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:18:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (0.6ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Catching Fireflies"], ["artist", "The Revivalists"], ["time", 313], ["created_at", "2020-08-06 17:40:31.424783"], ["updated_at", "2020-08-06 17:40:31.424783"]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (38.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 267ms (ActiveRecord: 106.9ms | Allocations: 36133)
+
+
+  
+NoMethodError (undefined method `song_url' for #<SongsController:0x00007fce8c1cdd30>
+Did you mean?  song_params):
+  
+app/controllers/songs_controller.rb:21:in `create'
+Started POST "/playlists/3/songs" for ::1 at 2020-08-06 13:42:27 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"title"=>"Catching Fireflies", "artist"=>"The Revivalists", "time"=>"313"}, "playlist_id"=>"3"}
+  [1m[36mPlaylist Load (23.7ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:18:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:18:in `create'
+  [1m[36mSong Create (8.1ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Catching Fireflies"], ["artist", "The Revivalists"], ["time", 313], ["created_at", "2020-08-06 17:42:27.910074"], ["updated_at", "2020-08-06 17:42:27.910074"]]
+  ↳ app/controllers/songs_controller.rb:18:in `create'
+  [1m[36mRelate Create (20.8ms)[0m  [1m[32mINSERT INTO "relates" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 21], ["created_at", "2020-08-06 17:42:27.995020"], ["updated_at", "2020-08-06 17:42:27.995020"]]
+  ↳ app/controllers/songs_controller.rb:18:in `create'
+  [1m[35m (39.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/songs_controller.rb:18:in `create'
+Completed 500 Internal Server Error in 426ms (ActiveRecord: 230.1ms | Allocations: 40997)
+
+
+  
+NoMethodError (undefined method `song_url' for #<SongsController:0x00007fce8ba19058>
+Did you mean?  song_params):
+  
+app/controllers/songs_controller.rb:21:in `create'
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Chop Suey!"], ["artist", "System Of A Down"], ["time", 210], ["created_at", "2020-08-06 17:43:46.829461"], ["updated_at", "2020-08-06 17:43:46.829461"]]
+  [1m[36mRelate Create (0.5ms)[0m  [1m[32mINSERT INTO "relates" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 22], ["created_at", "2020-08-06 17:43:46.832065"], ["updated_at", "2020-08-06 17:43:46.832065"]]
+  [1m[35m (25.6ms)[0m  [1m[35mCOMMIT[0m
