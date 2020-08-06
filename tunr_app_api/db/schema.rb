@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_154609) do
+ActiveRecord::Schema.define(version: 2020_08_06_165508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "joins", force: :cascade do |t|
-    t.bigint "song_id", null: false
-    t.bigint "playlist_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["playlist_id"], name: "index_joins_on_playlist_id"
-    t.index ["song_id"], name: "index_joins_on_song_id"
-  end
 
   create_table "playlists", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "relates", force: :cascade do |t|
+    t.bigint "playlist_id", null: false
+    t.bigint "song_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["playlist_id"], name: "index_relates_on_playlist_id"
+    t.index ["song_id"], name: "index_relates_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -38,6 +38,6 @@ ActiveRecord::Schema.define(version: 2020_08_06_154609) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "joins", "playlists"
-  add_foreign_key "joins", "songs"
+  add_foreign_key "relates", "playlists"
+  add_foreign_key "relates", "songs"
 end

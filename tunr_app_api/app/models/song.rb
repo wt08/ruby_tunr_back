@@ -1,4 +1,4 @@
 class Song < ApplicationRecord
-    has_many :joins
-    has_many :playlists, through: :joins
+    has_many :relates
+    has_many :playlists, through: :relates
 end
