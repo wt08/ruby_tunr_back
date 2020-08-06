@@ -2034,3 +2034,64 @@ Processing by SongsController#index as HTML
 Completed 200 OK in 211ms (Views: 0.2ms | ActiveRecord: 117.7ms | Allocations: 25922)
 
 
+Started GET "/playlists/2" for ::1 at 2020-08-06 15:59:49 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (1.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:44:in `set_playlist'
+  [1m[36mSong Load (5.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 2]]
+  ↳ app/controllers/playlists_controller.rb:13:in `show'
+Completed 200 OK in 47ms (Views: 0.1ms | ActiveRecord: 30.2ms | Allocations: 2941)
+
+
+Started GET "/playlists/2" for ::1 at 2020-08-06 16:02:20 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (1.0ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:44:in `set_playlist'
+  [1m[36mSong Load (2.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 2]]
+  ↳ app/controllers/playlists_controller.rb:13:in `show'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 2268)
+
+
+Started GET "/playlists/2" for ::1 at 2020-08-06 16:03:26 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (1.6ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:44:in `set_playlist'
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 2]]
+  ↳ app/controllers/playlists_controller.rb:13:in `show'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 2268)
+
+
+Started GET "/playlists/2" for ::1 at 2020-08-06 16:03:30 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.5ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:44:in `set_playlist'
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 2]]
+  ↳ app/controllers/playlists_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 2268)
+
+
+Started GET "/playlists/2" for ::1 at 2020-08-06 16:03:48 -0400
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (1.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:44:in `set_playlist'
+  [1m[36mSong Load (2.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 2]]
+  ↳ app/controllers/playlists_controller.rb:13:in `show'
+Completed 200 OK in 114ms (Views: 0.2ms | ActiveRecord: 44.8ms | Allocations: 17373)
+
+
+Started GET "/playlists/2" for ::1 at 2020-08-06 16:03:51 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (48.6ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:44:in `set_playlist'
+  [1m[36mSong Load (19.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "relates" ON "songs"."id" = "relates"."song_id" WHERE "relates"."playlist_id" = $1[0m  [["playlist_id", 2]]
+  ↳ app/controllers/playlists_controller.rb:13:in `show'
+Completed 200 OK in 75ms (Views: 0.1ms | ActiveRecord: 68.4ms | Allocations: 2288)
+
+
